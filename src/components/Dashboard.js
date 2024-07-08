@@ -1,16 +1,20 @@
-// src/components/Dashboard.js
+// In Dashboard.js
 import React from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
+  HomeOutlined,
+  CheckSquareOutlined,
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-
+import { Link, Route, Routes, useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
+import Memberslist from './Memberslist';
+import Home from './Home';
+import Teams1 from './Teams';
+import Tasks1 from './Tasks';
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+
+const Members = () => <Memberslist />;
 
 class Dashboard extends React.Component {
   state = {
@@ -24,28 +28,23 @@ class Dashboard extends React.Component {
 
   render() {
     const { collapsed } = this.state;
+
     return (
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
-              Option 1
+            <Menu.Item key="1" icon={<HomeOutlined />}>
+              <Link to="/Home">Home</Link>
             </Menu.Item>
-            <Menu.Item key="2" icon={<DesktopOutlined />}>
-              Option 2
+            <Menu.Item key="2" icon={<CheckSquareOutlined />}>
+              <Link to="/tasks">Tasks</Link>
             </Menu.Item>
-            <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-              <Menu.Item key="3">Tom</Menu.Item>
-              <Menu.Item key="4">Bill</Menu.Item>
-              <Menu.Item key="5">Alex</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-              <Menu.Item key="6">Team 1</Menu.Item>
-              <Menu.Item key="8">Team 2</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="9" icon={<FileOutlined />}>
-              Files
+            <Menu.Item key="3" icon={<TeamOutlined />}>
+              <Link to="/teams">Teams</Link>
+            </Menu.Item>
+            <Menu.Item key="4" icon={<UserOutlined />}>
+              <Link to="/members">Members</Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -57,10 +56,15 @@ class Dashboard extends React.Component {
               <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              Welcome to the Craft Club Dashboard!
+              <Routes>
+                <Route path="/Home" element={<Home />} />
+                <Route path="/tasks" element={<Tasks1 />} />
+                <Route path="/teams" element={<Teams1 />} />
+                <Route path="/members" element={<Members />} />
+              </Routes>
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Craft Club Dashboard ©2024 Created by [Your Name]</Footer>
+          <Footer style={{ textAlign: 'center' }}>Craft Club Dashboard ©2024 Created by <a href="https://www.linkedin.com/in/ali-9ihad/">Ali N. Abdulameer</a></Footer>
         </Layout>
       </Layout>
     );
