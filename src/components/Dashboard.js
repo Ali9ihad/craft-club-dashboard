@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 // src/components/Dashboard.js
->>>>>>> parent of 9a1a8231 (Made the sidebar and it’s wondows functional)
 import React from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
@@ -11,17 +8,6 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-<<<<<<< HEAD
-import { Link, Route, Routes } from 'react-router-dom'; // Import useNavigate for programmatic navigation
-
-import Memberslist from './Memberslist';
-import Home from './Home';
-import Teams1 from './Teams';
-import Tasks1 from './Tasks';
-
-const { Header, Content, Footer, Sider } = Layout;
-=======
->>>>>>> parent of 9a1a8231 (Made the sidebar and it’s wondows functional)
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;

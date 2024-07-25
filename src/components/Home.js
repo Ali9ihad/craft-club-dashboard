@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import 'antd/dist/antd.css'; // Import Ant Design styles
+import Dashboard from './components/Dashboard';
 
-const Home = () => {
-  useEffect(() => {
-    console.log('Home component mounted');
-    return () => {
-      console.log('Home component unmounted');
-    };
-  }, []);
-
+function App() {
   return (
-    <div>
-      <h2>Main Component</h2>
+    <div className="App">
+      <Dashboard />
     </div>
   );
-};
+}
 
-export default Home;
+export default App;
