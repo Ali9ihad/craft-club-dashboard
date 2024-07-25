@@ -6,12 +6,15 @@ import {
   CheckSquareOutlined,
   TeamOutlined,
   UserOutlined,
+  FileOutlined
 } from '@ant-design/icons';
-import { Link, Route, Routes, useNavigate } from 'react-router-dom'; // Import useNavigate for programmatic navigation
+import { Link, Route, Routes, useNavigate } from 'react-router-dom'; // Imported for navigation
 import Memberslist from './Memberslist';
 import Home from './Home';
 import Teams1 from './Teams';
 import Tasks1 from './Tasks';
+import Status from './Status';
+
 const { Header, Content, Footer, Sider } = Layout;
 
 const Members = () => <Memberslist />;
@@ -45,9 +48,13 @@ class Dashboard extends React.Component {
             </Menu.Item>
             <Menu.Item key="4" icon={<UserOutlined />}>
               <Link to="/members">Members</Link>
+              </Menu.Item>
+            <Menu.Item key="5" icon={< FileOutlined/>}>
+              <Link to="/Status">Status</Link>
             </Menu.Item>
           </Menu>
         </Sider>
+
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
@@ -55,12 +62,15 @@ class Dashboard extends React.Component {
               <Breadcrumb.Item>Home</Breadcrumb.Item>
               <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
             </Breadcrumb>
+
+
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
               <Routes>
                 <Route path="/Home" element={<Home />} />
                 <Route path="/tasks" element={<Tasks1 />} />
                 <Route path="/teams" element={<Teams1 />} />
                 <Route path="/members" element={<Members />} />
+                <Route path="/Status" element={<Status />} />
               </Routes>
             </div>
           </Content>

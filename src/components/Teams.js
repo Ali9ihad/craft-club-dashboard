@@ -5,7 +5,7 @@ const Teams = () => {
   return (
     <div>
       <h2>Teams Component</h2>
-      {/* Your component content */}
+      {/* the component content */}
     </div>
   );
 };
